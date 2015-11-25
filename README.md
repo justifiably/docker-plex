@@ -1,6 +1,6 @@
 Dockerized [Plex Media Server](https://plex.tv/).
 
-[![](https://badge.imagelayers.io/wernight/plex-media-server:latest.svg)](https://imagelayers.io/?images=wernight/plex-media-server:latest 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/jiigsaaw/plex-pass-media-server:latest.svg)](https://imagelayers.io/?images=jiigsaaw/plex-pass-media-server:latest 'Get your own badge on imagelayers.io')
 
 Usage
 -----
@@ -14,7 +14,7 @@ Example:
 
     $ mkdir ~/plex-config
     $ chown 797:797 -R ~/plex-config
-    $ docker run -d --restart=always -v ~/plex-config:/config -v ~/Movies:/media --net=host -p 32400:32400 wernight/plex-media-server
+    $ docker run -d --restart=always -v ~/plex-config:/config -v ~/Movies:/media --net=host -p 32400:32400 jiigsaaw/plex-pass-media-server
 
 Once done, wait a few seconds and open `http://localhost:32400/web` in your browser.
 
@@ -34,13 +34,14 @@ Features
 
 ### Comparison of main Plex Docker containers
 
-Image                        | Size                 | [Runs As]  | [PID 1 Reap] | [Slim Container]
----------------------------- | -------------------- | ---------- | ------------ | ----------------
-[wernight/plex-media-server] | ![][img-wernight]    | **user**   | **Safe**     | **Yes**
-[linuxserver/plex]           | ![][img-linuxserver] | **user**   | **Safe**     | No
-[timhaak/plex]               | ![][img-timhaak]     | root       | Unsafe       | No
-[needo/plex]                 | ![][img-needo]       | root       | **Safe**     | No
-[binhex/arch-plex]           | ![][img-binhex]      | root       | Unsafe       | No
+Image                             | Size                 | [Runs As]  | [PID 1 Reap] | [Slim Container] | Plex PASS
+--------------------------------- | -------------------- | ---------- | ------------ | ---------------- | ------------
+[jiigsaaw/plex-pass-media-server] | ![][img-jiigsaaw]    | **user**   | **Safe**     | **Yes**          | **Yes**
+[wernight/plex-media-server]      | ![][img-wernight]    | **user**   | **Safe**     | **Yes**          | No
+[linuxserver/plex]                | ![][img-linuxserver] | **user**   | **Safe**     | No               | No
+[timhaak/plex]                    | ![][img-timhaak]     | root       | Unsafe       | No               | No
+[needo/plex]                      | ![][img-needo]       | root       | **Safe**     | No               | No
+[binhex/arch-plex]                | ![][img-binhex]      | root       | Unsafe       | No               | No
 
 
 Based on current state as of July 2015.
@@ -48,6 +49,7 @@ Based on current state as of July 2015.
 [Runs As]: https://opensource.com/business/14/7/docker-security-selinux
 [PID 1 Reap]: https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/
 [Slim Container]: https://blog.phusion.nl/2015/01/20/baseimage-docker-fat-containers-treating-containers-vms/
+[jiigsaaw/plex-pass-media-server]: https://registry.hub.docker.com/u/jiigsaaw/plex-pass-media-server/
 [wernight/plex-media-server]: https://registry.hub.docker.com/u/wernight/plex-media-server/
 [linuxserver/plex]:           https://registry.hub.docker.com/u/linuxserver/plex/
 [timhaak/plex]:               https://registry.hub.docker.com/u/timhaak/plex/
@@ -59,7 +61,7 @@ Upgrades and Versions
 
 *Plex Media Server* does *not* support auto-upgrade from the UI on Linux. If/once it does, we'd be more than happy to support it.
 
-To upgrade to the latest version do again a `docker pull wernight/plex-media-server` and that should be it. Currently Plex auto-upgrade does not seem to be properly supported (probably because this image runs a single plex process and not initd).
+To upgrade to the latest version do again a `docker pull jiigsaaw/plex-pass-media-server` and that should be it. Currently Plex auto-upgrade does not seem to be properly supported (probably because this image runs a single plex process and not initd).
 
 You may use a tagged version to use a fixed or older version.
 
@@ -103,8 +105,9 @@ But don't take my word for it, it's really easy for you to check.
 Feedbacks
 ---------
 
-Having more issues? [Report a bug on GitHub](https://github.com/wernight/docker-plex-media-server/issues).
+Having more issues? [Report a bug on GitHub](https://github.com/jiigsaaw/docker-plex-pass-media-server/issues).
 
+[img-jiigsaaw]: https://badge.imagelayers.io/jiigsaaw/plex-pass-media-server:latest.svg
 [img-wernight]: https://badge.imagelayers.io/wernight/plex-media-server:latest.svg
 [img-linuxserver]: https://badge.imagelayers.io/linuxserver/plex:latest.svg
 [img-timhaak]: https://badge.imagelayers.io/timhaak/plex:latest.svg
