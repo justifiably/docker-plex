@@ -1,0 +1,9 @@
+plex:
+  container_name: "plex"
+  restart: always
+  image: justifiably/plex
+  ports:
+    - 32400:32400
+  volumes:
+    - <config-host-dir>:/config
+    - <media-host-dir>:/media
