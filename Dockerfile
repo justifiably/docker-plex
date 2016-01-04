@@ -10,8 +10,8 @@ RUN useradd --system --uid 797 -M --shell /usr/sbin/nologin plex \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         ca-certificates \
-        curl \
- && DOWNLOAD_URL=`curl -Ls http://plex.baconopolis.net/latest.php` \
+        curl
+RUN DOWNLOAD_URL=`curl -Ls http://plex.baconopolis.net/latest.php` \
  && echo $DOWNLOAD_URL \
  && curl -L $DOWNLOAD_URL -o plexmediaserver.deb \
  && touch /bin/start \
