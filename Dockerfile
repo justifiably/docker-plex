@@ -1,19 +1,24 @@
 FROM debian:jessie
 
 # 1. Create plex user
-# 2. Download and install Plex (non plexpass)
+# 2. Download and install Plex
 # 3. Create writable config directory in case the volume isn't mounted
-# This gets the latest non-plexpass version
-# Note: We created a dummy /bin/start to avoid install to fail due to upstart not being installed.
-# We won't use upstart anyway.
+
+# Note: We created a dummy /bin/start to avoid install to fail due to
+# upstart not being installed.  We won't use upstart anyway.
 RUN useradd --system --uid 797 -M --shell /usr/sbin/nologin plex \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         ca-certificates \
         curl
-RUN DOWNLOAD_URL=`curl -Ls http://plex.baconopolis.net/latest.php` \
- && echo $DOWNLOAD_URL \
- && curl -L $DOWNLOAD_URL -o plexmediaserver.deb \
+
+# RUN DOWNLOAD_URL=`curl -Ls http://plex.baconopolis.net/latest.php` \
+#  && echo $DOWNLOAD_URL \
+# Justifiably: update this next URL manually myself for plexpass version
+
+ENV DOWNLOAD_URL=https://downloads.plex.tv/plex-media-server/0.9.16.6.1993-5089475/plexmediaserver_0.9.16.6.1993-5089475_amd64.deb
+
+RUN curl -L $DOWNLOAD_URL -o plexmediaserver.deb \
  && touch /bin/start \
  && chmod +x /bin/start \
  && dpkg -i plexmediaserver.deb \
