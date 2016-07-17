@@ -16,7 +16,7 @@ RUN useradd --system --uid 797 -M --shell /usr/sbin/nologin plex \
 #  && echo $DOWNLOAD_URL \
 # Justifiably: update this next URL manually myself for plexpass version
 
-ENV DOWNLOAD_URL=https://downloads.plex.tv/plex-media-server/0.9.16.6.1993-5089475/plexmediaserver_0.9.16.6.1993-5089475_amd64.deb
+ENV DOWNLOAD_URL=https://downloads.plex.tv/plex-media-server/1.0.0.2261-a17e99e/plexmediaserver_1.0.0.2261-a17e99e_amd64.deb
 
 RUN curl -L $DOWNLOAD_URL -o plexmediaserver.deb \
  && touch /bin/start \
