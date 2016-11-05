@@ -12,13 +12,9 @@ RUN useradd --system --uid 797 -M --shell /usr/sbin/nologin plex \
         ca-certificates \
         curl
 
-# RUN DOWNLOAD_URL=`curl -Ls http://plex.baconopolis.net/latest.php` \
-#  && echo $DOWNLOAD_URL \
-# Justifiably: update this next URL manually myself for plexpass version
-
-ENV DOWNLOAD_URL=https://downloads.plex.tv/plex-media-server/1.0.0.2261-a17e99e/plexmediaserver_1.0.0.2261-a17e99e_amd64.deb
-
-RUN curl -L $DOWNLOAD_URL -o plexmediaserver.deb \
+RUN DOWNLOAD_URL=`curl -Ls http://plex.baconopolis.net/latest.php` \
+ && echo "Fetching plex version:\n$DOWNLOAD_URL" \
+ && curl -L $DOWNLOAD_URL -o plexmediaserver.deb \
  && touch /bin/start \
  && chmod +x /bin/start \
  && dpkg -i plexmediaserver.deb \

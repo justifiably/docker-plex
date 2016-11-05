@@ -1,6 +1,6 @@
 Dockerized [Plex Media Server](https://plex.tv/).
 
-[![](https://badge.imagelayers.io/jiigsaaw/plex-pass-media-server:latest.svg)](https://imagelayers.io/?images=jiigsaaw/plex-pass-media-server:latest 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/justifiably/plex:latest.svg)](https://imagelayers.io/?images=justifiably/plex:latest 'Get your own badge on imagelayers.io')
 
 Usage
 -----
