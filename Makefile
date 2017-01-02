@@ -4,4 +4,4 @@ MYPLEXTOKEN=$(shell cat myplextoken.secret)
 NEWBUILDARGS=$(BUILDARGS) --build-arg MYPLEXTOKEN=$(MYPLEXTOKEN)
 
 build:
-	docker build $(NEWBUILDARGS) -t justifiably/plex .
+	docker build $(NEWBUILDARGS) --no-cache -t justifiably/plex .
